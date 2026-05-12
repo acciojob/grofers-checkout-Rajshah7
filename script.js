@@ -1,13 +1,20 @@
 const getSumBtn = document.createElement("button");
+
 getSumBtn.append("Get Total Price");
+
 document.body.appendChild(getSumBtn);
 
 const getSum = () => {
-	let prices = document.querySelectorAll(".prices");
 
-	let total = Array.from(prices).reduce((acc,price) => {
-		return acc + Number(price.textContent);
-	},0);
+	let prices =
+        document.querySelectorAll(".prices");
+
+	let total =
+        Array.from(prices).reduce((acc, price) => {
+
+		    return acc + Number(price.textContent);
+
+	    }, 0);
 
 	const oldRow =
         document.getElementById("total-row");
@@ -16,12 +23,17 @@ const getSum = () => {
         oldRow.remove();
     }
 
-	const tr = document.createElement('tr');
+	const tr =
+        document.createElement("tr");
+
 	tr.id = "total-row";
 
-	const td = document.createElement("td");
+	const td =
+        document.createElement("td");
 
     td.colSpan = 2;
+
+    td.id = "ans";
 
 	td.textContent =
         `Total Price: ${total}`;
@@ -34,4 +46,3 @@ const getSum = () => {
 };
 
 getSumBtn.addEventListener("click", getSum);
-
